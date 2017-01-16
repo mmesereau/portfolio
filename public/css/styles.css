@@ -1,0 +1,137 @@
+.links img {
+  width: 50%;
+  margin-top: 25%;
+}
+
+.work img {
+  margin: 2vh;
+  height: 40vh;
+}
+
+.header img {
+  width: 100%;
+}
+
+.header {
+  background-image: url('wallpaper1.jpeg');
+  background-size: cover;
+}
+
+
+.header h1 {
+  color: #D47034;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-size: 100px;
+}
+
+.header h3 {
+  color: #B14F15;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  font-size: 70px;
+}
+
+.links {
+  background-image: url('wallpaper2.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+.work {
+  background-image: url('background4.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+.intro_text {
+  text-align: center;
+  height: 100%;
+}
+
+.page {
+  float:left;
+  width: 100%;
+}
+
+.bottom {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  height: 10%;
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+.phone_icon {
+  height: 100%;
+}
+
+.phone_icon a {
+  margin-left: 8vh;
+}
+
+.email_icon {
+  height: 100%;
+  text-align: right;
+}
+
+.email_icon a {
+  margin-right: 8vh;
+}
+
+/*div {
+  border: 1px solid white;
+}*/
+
+h1 {
+  font-size: 8vh;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+.work h2 {
+  font-size: 6vh;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+p {
+  font-size: 2.5vh;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+.bottom img {
+  height: 100%;
+}
+
+.mastermage img {
+  margin: 2vh;
+  height: 40vh;
+}
+
+.mastermage {
+  background-image: url('mtg_background_hydra.jpg');
+  background-size: cover;
+  text-align: center;
+}
+
+.mastermage h1 {
+  font-size: 8vh;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+.mastermage h2 {
+  font-size: 6vh;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.mastermage p {
+  font-size: 2.5vh;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
