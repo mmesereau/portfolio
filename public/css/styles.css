@@ -65,17 +65,9 @@
   height: 100%;
 }
 
-.phone_icon a {
-  margin-left: 8vh;
-}
-
 .email_icon {
   height: 100%;
   text-align: right;
-}
-
-.email_icon a {
-  margin-right: 8vh;
 }
 
 /*div {

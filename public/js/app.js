@@ -5,78 +5,99 @@ var app = angular.module("PortfolioApp", [])
   var vm = this;
 
   var positions = [];
-
-  var location = $(window).scrollTop();
-  var move = null;
-  var goal, time;
-
-  for (var i = 0; i < $(".page").length; i++) {
-    $("#page" + i).css("height", $(window).height());
-    positions.push($("#page" + i).position().top - $("#page0").position().top);
-  }
-
-  $(document).on("scrollstart", function() {
-    console.log("hello");
-    clearInterval(move);
-    time = Date.now();
-      if (location < $(window).scrollTop()) {
-        for (var i = 0; i < positions.length; i++) {
-          if (positions[i] > location) {
-            goal = positions[i];
-            break;
-          }
-        }
-        move = setInterval(function() {
-          if ($(window).scrollTop() >= goal) {
-            $(window).scrollTop(goal);
-            location = goal;
-          }
-          else {
-            $(window).scrollTop($(window).scrollTop() + 10);
-          }
-        }, 1);
+  $(document).ready(function() {
+    var setPositions = function() {
+      positions = [];
+      for (var i = 0; i < $(".page").length; i++) {
+        $("#page" + i).css("height", $(window).height());
+        positions.push($("#page" + i).position().top);
       }
-      else if (location > $(window).scrollTop()) {
-        for (var i = positions.length; i > -1; i--) {
-          if (positions[i] < location  && time > Date.now() - 100) {
-            goal = positions[i];
-            break;
-          }
+      var closest = $("body").height();
+      var index;
+      for (var i = 0; i < positions.length; i++) {
+        if (Math.abs($(window).scrollTop() - positions[i]) < closest) {
+          closest = Math.abs($(window).scrollTop() - positions[i]);
+          index = i;
         }
-        move = setInterval(function() {
-          if ($(window).scrollTop() <= goal) {
-            $(window).scrollTop(goal);
-            location = goal;
-          }
-          else {
-            $(window).scrollTop($(window).scrollTop() - 10);
-          }
-        }, 1);
       }
+      $('html, body').animate({
+        scrollTop: $("#page" + index).offset().top
+      }, 400);
+    }
+    $(document).on("scrollstop", function() {
+      setPositions();
+    });
+    setPositions();
   });
 
-  $(document).on("scrollstop", function() {
-    console.log("goodbye");
-    clearInterval(move);
-  });
+
+
+      // if (vm.location < $("body").scrollTop()) {
+      //   console.log(vm.location);
+      //   console.log($("body").scrollTop());
+      //   for (var i = 0; i < positions.length; i++) {
+      //     if (positions[i] > vm.location) {
+      //       vm.goal = i;
+      //       break;
+      //     }
+      //   }
+
+        // move = setInterval(function() {
+        //   if ($("body").scrollTop() >= vm.goal) {
+        //     $(window).scrollTop(vm.goal);
+        //     vm.location = vm.goal;
+        //   }
+        //   else {
+        //     $(window).scrollTop($("body").scrollTop() + 10);
+        //   }
+        // }, 1);
+      // }
+      // else if (vm.location > $("body").scrollTop()) {
+      //   for (var i = positions.length; i > -1; i--) {
+      //     if (positions[i] < vm.location) {
+      //       vm.goal = i;
+      //       break;
+      //     }
+      //   }
+        // move = setInterval(function() {
+        //   if ($("body").scrollTop() <= vm.goal) {
+        //     $(window).scrollTop(vm.goal);
+        //     vm.location = vm.goal;
+        //   }
+        //   else {
+        //     $(window).scrollTop($("body").scrollTop() - 10);
+        //   }
+        // }, 1);
+      // }
+      // console.log(vm.goal);
+      // $('html, body').animate({
+      //   scrollTop: $("#page" + vm.goal).offset().top
+      // }, 600, function() {
+      //   vm.location = $("body").scrollTop();
+      // });
+
+  // });
+
+
+
 
   // $(window).scroll(function() {
   //
-  //   if (location < $(window).scrollTop()) {
-  //     if ($(window).scrollTop() >= goal) {
-  //       $(window).scrollTop(goal);
+  //   if (vm.location < $("body").scrollTop()) {
+  //     if ($("body").scrollTop() >= vm.vm.goal) {
+  //       $(window).scrollTop(vm.goal);
   //
   //       clearInterval(move);
   //       move = null;
-  //       location = $(window).scrollTop();
+  //       vm.location = $("body").scrollTop();
   //     }
   //   }
-  //   else if (location > $(window).scrollTop()) {
-  //     if ($(window).scrollTop() <= goal) {
-  //       $(window).scrollTop(goal);
+  //   else if (vm.location > $("body").scrollTop()) {
+  //     if ($("body").scrollTop() <= vm.goal) {
+  //       $(window).scrollTop(vm.goal);
   //       clearInterval(move);
   //       move = null;
-  //       location = $(window).scrollTop();
+  //       vm.location = $("body").scrollTop();
   //     }
   //   }
   // });
